@@ -289,3 +289,53 @@ export async function cocktailSort(arr, callbacks) {
 
     for (let i = 0; i < n; i++) onSorted(i);
 }
+
+export async function countingSort(arr, callbacks) {
+    const { onCompare, onSwap, onSorted, onScan, onUpdateAux, getDelay, shouldStop } = callbacks;
+    const n = arr.length;
+
+    let max = arr[0];
+    for (let i = 1; i < n; i++) {
+        if (shouldStop()) return;
+        if (onScan) onScan(i);
+        await getDelay();
+
+        if (arr[i] > max) {
+            max = arr[i];
+        }
+    }
+    if (onScan) onScan();
+
+    const count = new Array(max + 1).fill(0);
+    if (onUpdateAux) onUpdateAux([...count], -1);
+
+    for (let i = 0; i < n; i++) {
+        if (shouldStop()) return;
+        if (onScan) onScan(i);
+        await getDelay();
+
+        if (onUpdateAux) onUpdateAux([...count], arr[i]);
+        await getDelay();
+        count[arr[i]]++;
+        if (onUpdateAux) onUpdateAux([...count], arr[i]);
+    }
+    if (onScan) onScan();
+    if (onUpdateAux) onUpdateAux([...count], -1);
+
+    let k = 0;
+    for (let i = 0; i <= max; i++) {
+        if (onUpdateAux) onUpdateAux([...count], i);
+        while (count[i] > 0) {
+            if (shouldStop()) return;
+
+            arr[k] = i;
+            onSwap([...arr]);
+            onSorted(k);
+            await getDelay();
+
+            count[i]--;
+            if (onUpdateAux) onUpdateAux([...count], i);
+            k++;
+        }
+    }
+}

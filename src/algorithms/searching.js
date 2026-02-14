@@ -3,7 +3,8 @@
 export async function linearSearch(arr, target, callbacks) {
     const { onCompare, onFound, onNotFound, getDelay, shouldStop } = callbacks;
 
-    for (let i = 0; i < arr.length; i++) {
+    let i = 0;
+    while (i < arr.length) {
         if (shouldStop()) return;
 
         onCompare(i);
@@ -13,6 +14,7 @@ export async function linearSearch(arr, target, callbacks) {
             onFound(i);
             return;
         }
+        i++;
     }
 
     onNotFound();

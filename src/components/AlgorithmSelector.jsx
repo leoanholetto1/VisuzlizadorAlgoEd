@@ -14,6 +14,14 @@ const categories = [
             { id: 'binaryInsertion', name: 'Binary Insertion Sort', complexity: 'O(n²)', icon: '🔢' },
             { id: 'merge', name: 'Merge Sort', complexity: 'O(n log n)', icon: '🤝' },
             { id: 'cocktail', name: 'Cocktail Sort', complexity: 'O(n²)', icon: '🍹' },
+            {
+                id: 'counting',
+                name: 'Counting Sort',
+                complexity: 'O(n+k)',
+                icon: '💯',
+                visualType: 'box',
+                customConfig: { maxValue: 15, arraySize: 15 }
+            },
             { id: 'gnome', name: 'Gnome Sort', complexity: 'O(n²)', icon: '🧙' },
             { id: 'comb', name: 'Comb Sort', complexity: 'O(n²)', icon: '🧹' }
         ]
@@ -32,14 +40,18 @@ const categories = [
         name: 'Grafos',
         icon: '🕸️',
         description: 'Algoritmos para estruturas de grafos',
-        algorithms: []
+        algorithms: [
+            { id: 'graphVisualizer', name: 'Visualizador de Grafos', complexity: 'O(n+m) or O(n²)', icon: '🕸️' }
+        ]
     },
     {
         id: 'math',
         name: 'Matemática',
         icon: '🔢',
         description: 'Algoritmos matemáticos e numéricos',
-        algorithms: []
+        algorithms: [
+            { id: 'sieve', name: 'Crivo de Eratóstenes', complexity: 'O(n log log n)', icon: '🔢' }
+        ]
     }
 ];
 
