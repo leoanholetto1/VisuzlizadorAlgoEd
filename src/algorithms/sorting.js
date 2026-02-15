@@ -1,5 +1,3 @@
-// Algoritmos de Ordenação
-
 export async function bubbleSort(arr, callbacks) {
     const { onCompare, onSwap, onSorted, getDelay, shouldStop } = callbacks;
     const n = arr.length;

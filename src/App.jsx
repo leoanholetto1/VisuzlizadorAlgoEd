@@ -3,10 +3,12 @@ import CustomNavbar from './components/Navbar';
 import AlgorithmSelector from './components/AlgorithmSelector';
 import SortingVisualizer from './components/SortingVisualizer';
 import { bubbleSort, selectionSort, insertionSort, mergeSort, binaryInsertionSort, cocktailSort, countingSort, gnomeSort, combSort } from './algorithms/sorting';
-import { linearSearch } from './algorithms/searching';
+import { linearSearch, sentinelSearch, binarySearch, interpolationSearch } from './algorithms/searching';
 import SearchingVisualizer from './components/SearchingVisualizer';
+import BinarySearchVisualizer from './components/BinarySearchVisualizer';
 import GraphVisualizer from './components/GraphVisualizer';
 import SieveVisualizer from './components/SieveVisualizer';
+import HashTableVisualizer from './components/HashTableVisualizer';
 import './App.css';
 
 const algorithmMap = {
@@ -27,8 +29,12 @@ const algorithmMap = {
     gnome: { algorithm: gnomeSort, title: 'Gnome Sort', icon: '🧙', type: 'sorting' },
     comb: { algorithm: combSort, title: 'Comb Sort', icon: '🧹', type: 'sorting' },
     linear: { algorithm: linearSearch, title: 'Busca Exaustiva', icon: '🔍', type: 'searching' },
+    sentinel: { algorithm: sentinelSearch, title: 'Busca com Sentinela', icon: '🛡️', type: 'searching' },
+    binary: { algorithm: binarySearch, title: 'Busca Binária', icon: '✂️', type: 'binarySearch' },
+    interpolation: { algorithm: interpolationSearch, title: 'Busca por Interpolação', icon: '📐', type: 'binarySearch' },
     graphVisualizer: { title: 'Visualizador de Grafos', icon: '🕸️', type: 'graph' },
-    sieve: { title: 'Crivo de Eratóstenes', icon: '🔢', type: 'math' }
+    sieve: { title: 'Crivo de Eratóstenes', icon: '🔢', type: 'math' },
+    hashTable: { title: 'Tabela Hash', icon: '#️⃣', type: 'dataStructure' }
 };
 
 function App() {
@@ -60,6 +66,17 @@ function App() {
             );
         }
 
+        if (config.type === 'binarySearch') {
+            return (
+                <BinarySearchVisualizer
+                    onBack={handleBack}
+                    algorithm={config.algorithm}
+                    title={config.title}
+                    icon={config.icon}
+                />
+            );
+        }
+
         if (config.type === 'graph') {
             return (
                 <GraphVisualizer
@@ -73,6 +90,16 @@ function App() {
         if (config.type === 'math') {
             return (
                 <SieveVisualizer
+                    onBack={handleBack}
+                    title={config.title}
+                    icon={config.icon}
+                />
+            );
+        }
+
+        if (config.type === 'dataStructure') {
+            return (
+                <HashTableVisualizer
                     onBack={handleBack}
                     title={config.title}
                     icon={config.icon}

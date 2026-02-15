@@ -8,7 +8,7 @@ function SortingVisualizer({ onBack, algorithm, title, icon, visualType, customC
     const [sorted, setSorted] = useState([]);
     const [selected, setSelected] = useState([]);
     const [scanning, setScanning] = useState([]);
-    const [auxiliary, setAuxiliary] = useState(null); // { data: [], active: -1 }
+    const [auxiliary, setAuxiliary] = useState(null);
     const [isSorting, setIsSorting] = useState(false);
     const [speed, setSpeed] = useState(DEFAULT_CONFIG.defaultSpeed);
     const sortingRef = useRef(false);

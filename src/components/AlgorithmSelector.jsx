@@ -32,7 +32,10 @@ const categories = [
         icon: '🔍',
         description: 'Algoritmos para encontrar elementos',
         algorithms: [
-            { id: 'linear', name: 'Busca Exaustiva', complexity: 'O(n)', icon: '🔍' }
+            { id: 'linear', name: 'Busca Exaustiva', complexity: 'O(n)', icon: '🔍' },
+            { id: 'sentinel', name: 'Busca com Sentinela', complexity: 'O(n)', icon: '🛡️' },
+            { id: 'binary', name: 'Busca Binária', complexity: 'O(log n)', icon: '✂️' },
+            { id: 'interpolation', name: 'Busca por Interpolação', complexity: 'O(log log n)', icon: '📐' }
         ]
     },
     {
@@ -51,6 +54,15 @@ const categories = [
         description: 'Algoritmos matemáticos e numéricos',
         algorithms: [
             { id: 'sieve', name: 'Crivo de Eratóstenes', complexity: 'O(n log log n)', icon: '🔢' }
+        ]
+    },
+    {
+        id: 'dataStructures',
+        name: 'Estruturas de Dados',
+        icon: '🗃️',
+        description: 'Visualização de estruturas de dados',
+        algorithms: [
+            { id: 'hashTable', name: 'Tabela Hash', complexity: 'O(1) médio', icon: '#️⃣' }
         ]
     }
 ];

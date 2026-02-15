@@ -1,5 +1,3 @@
-// Utilitários para arrays e animações
-
 export function generateRandomArray(config = {}) {
     const { size = 20, min = 20, max = 320 } = config;
     const array = [];

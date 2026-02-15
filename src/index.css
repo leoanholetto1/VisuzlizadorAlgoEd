@@ -27,7 +27,7 @@ body {
   min-height: 100vh;
 }
 
-/* Glassmorphism Card */
+
 .glass-card {
   background: var(--bg-card);
   backdrop-filter: blur(10px);
@@ -42,7 +42,7 @@ body {
   border-color: var(--accent-primary);
 }
 
-/* Custom Scrollbar */
+
 ::-webkit-scrollbar {
   width: 8px;
 }
